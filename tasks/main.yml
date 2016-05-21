@@ -1,0 +1,9 @@
+---
+- name: setup mounts
+  mount: >
+    name="{{ item.name }}"
+    src="{{ item.src }}"
+    fstype="{{ item.fstype }}"
+    passno="{{ item.passno }}"
+    state="{{ item.state }}"
+  with_items: "{{ block_devices_mounts|default([]) }}"
